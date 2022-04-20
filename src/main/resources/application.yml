@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://1.15.46.56:3306/GetVideo?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: xxxxxxx
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        # 开启批量插入
+        jdbc:
+          batch_size: 50000
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    show-sql: true
