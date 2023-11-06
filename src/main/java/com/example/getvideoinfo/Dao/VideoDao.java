@@ -7,10 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 @Repository
 public interface VideoDao extends JpaRepository<SaveVideoInfo, Long> {
     @Transactional
     @Modifying
-    @Query(nativeQuery = true, value = "INSERT INTO `videoInfo`(`id`, `href`, `img`, `language`, `title`, `content`,`download`) VALUES (?1,?2,?3,?4,?5,?6,?7)")
-    int updateIndexCalculated(Long id, String href, String img, String language, String title, String content,String download);
+    @Query(nativeQuery = true, value = "INSERT INTO `save_video_info_bak`(`id`, `href`, `img`, `language`, `title`, `content`,`download`,`time`) VALUES (?1,?2,?3,?4,?5,?6,?7,?8)")
+    int updateIndexCalculated(Long id, String href, String img, String language, String title, String content, String download, Date date);
 }
